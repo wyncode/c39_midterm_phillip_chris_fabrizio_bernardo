@@ -1,0 +1,19 @@
+.navbar {
+    background-color: #393939;
+}
+
+.navbar-icon {
+    margin-right: 1rem;
+  }
+
+#basic-nav-dropdown {
+    color: #fff;
+}
+
+.dropdown-menu {
+    background-color: #ec7f37;
+}
+
+.dropdown-item {
+    color: #fff;
+}

@@ -1,17 +1,6 @@
-table,
-td,
-tr {
-  border: 10px double rgb(150, 111, 39);
-  font-size: 15px;
-  color: gray;
-  font-weight: 300;
-}
-
-td {
-  font-size: 18px;
-}
-
-img {
+#demo {
+  width: 100vw;
+  height: 100vh;
   display: flex;
   height: 200px;
   width: 200 px;
@@ -26,14 +15,6 @@ input {
   padding: 0 1rem;
 }
 
-body {
-  background: url('./assets/images/basket.png');
-}
-
-h3 {
-  color: orange;
-  font-weight: 300;
-}
-h1 {
-  color: gray;
+#root {
+  background-color: #393939;
 }
