@@ -103,12 +103,12 @@ const PlayerDetails = () => {
               <td>{stat.reb}</td>
               <td>{stat.ast}</td>
               <td>{stat.stl}</td>
-              <td>{stat.blk}</td>
+              <td>{Math.round(stat.blk * 100)}%</td>
               <td>{stat.turnover}</td>
               <td>{stat.pf}</td>
               <td>{stat.pts}</td>
-              <td>{stat.fg_pct}</td>
-              <td>{stat.fg3_pct}</td>
+              <td>{Math.round(stat.fg_pct * 100)}%</td>
+              <td>{Math.round(stat.fg3_pct * 100)}%</td>
               <td>{Math.round(stat.ft_pct * 100)}%</td>
             </tr>
           );
