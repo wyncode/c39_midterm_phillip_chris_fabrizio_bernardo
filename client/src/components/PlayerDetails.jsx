@@ -34,13 +34,14 @@ const PlayerDetails = () => {
 
   useEffect(() => {
     const url = `https://nba-players.herokuapp.com/players/${player?.last_name}/${player?.first_name}`;
-    fetch(url)
-      .then((response) => response.blob())
-      .then(function (myBlob) {
-        const objectURL = URL.createObjectURL(myBlob);
-        setImage(objectURL);
-      })
-      .catch((err) => console.error(err));
+    player?.last_name &&
+      fetch(url)
+        .then((response) => response.blob())
+        .then(function (myBlob) {
+          const objectURL = URL.createObjectURL(myBlob);
+          setImage(objectURL);
+        })
+        .catch((err) => console.error(err));
   }, [player]);
 
   const years = [2015, 2016, 2017, 2018, 2019];
@@ -108,7 +109,7 @@ const PlayerDetails = () => {
               <td>{stat.pts}</td>
               <td>{stat.fg_pct}</td>
               <td>{stat.fg3_pct}</td>
-              <td>{stat.ft_pct}</td>
+              <td>{Math.round(stat.ft_pct * 100)}%</td>
             </tr>
           );
         })}
