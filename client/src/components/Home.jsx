@@ -27,9 +27,9 @@ function Home({ history }) {
       {playerStats
         .sort((a, b) => {
           return a.first_name > b.first_name
-            ? -1
-            : a.first_name < b.first_name
             ? 1
+            : a.first_name < b.first_name
+            ? -1
             : 0;
         })
         .map((player) => {
