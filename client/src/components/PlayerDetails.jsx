@@ -33,15 +33,12 @@ const PlayerDetails = () => {
   }, [year, id]);
 
   useEffect(() => {
-    fetch(
-      `https://nba-players.herokuapp.com/players/${player?.last_name}/${player?.first_name}`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('trig');
-
-        console.log(data);
-        setImage(data);
+    const url = `https://nba-players.herokuapp.com/players/${player?.last_name}/${player?.first_name}`;
+    fetch(url)
+      .then((response) => response.blob())
+      .then(function (myBlob) {
+        const objectURL = URL.createObjectURL(myBlob);
+        setImage(objectURL);
       })
       .catch((err) => console.error(err));
   }, [player]);
