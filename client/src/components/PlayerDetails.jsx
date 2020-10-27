@@ -67,6 +67,7 @@ const PlayerDetails = () => {
       </select>
 
       <table>
+        <thead>
         <tr>
           <th>Games</th>
           <th>Season</th>
@@ -89,9 +90,11 @@ const PlayerDetails = () => {
           <th>fg3_pct</th>
           <th>ft_pct</th>
         </tr>
+        </thead>
+        <tbody>
         {stats?.data.map((stat) => {
           return (
-            <tr key={stat.id} className="card">
+            <tr key={stat.id}>
               <td>{stat.games_played}</td>
               <td>{stat.season}</td>
               <td>{stat.min}</td>
@@ -115,8 +118,7 @@ const PlayerDetails = () => {
             </tr>
           );
         })}
-
-        <tr></tr>
+        </tbody>
       </table>
     </div>
   );
