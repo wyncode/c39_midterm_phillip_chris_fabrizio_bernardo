@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import './PlayerDetails.css';
 
 const PlayerDetails = () => {
   const [player, setPlayer] = useState(null);
@@ -33,22 +34,21 @@ const PlayerDetails = () => {
   }, [year, id]);
 
   useEffect(() => {
-    fetch(
-      `https://nba-players.herokuapp.com/players/${player?.last_name}/${player?.first_name}`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('trig');
-
-        console.log(data);
-        setImage(data);
+  const url = `https://nba-players.herokuapp.com/players/${player?.last_name}/${player?.first_name}`;
+  player?.last_name &&
+    fetch(url)
+      .then((response) => response.blob())
+      .then(function (myBlob) {
+        const objectURL = URL.createObjectURL(myBlob);
+        setImage(objectURL);
       })
       .catch((err) => console.error(err));
-  }, [player]);
+}, [player]);
+
 
   const years = [2015, 2016, 2017, 2018, 2019];
   return (
-    <div>
+    <div className='PlayerPage'>
       <div>
         <img src={image} alt="best players" />
       </div>
@@ -69,41 +69,45 @@ const PlayerDetails = () => {
       <table>
         <thead>
         <tr>
-          <th>Games</th>
           <th>Season</th>
-          <th>min</th>
-          <th>fgm</th>
-          <th>fga</th>
-          <th>fg3m</th>
-          <th>fg3a</th>
-          <th>ftm</th>
-          <th>fta</th>
-          <th>dreb</th>
-          <th>reb</th>
-          <th>ast</th>
-          <th>stl</th>
-          <th>blk</th>
-          <th>turnover</th>
-          <th>pf</th>
-          <th>pts</th>
-          <th>fg_pct</th>
-          <th>fg3_pct</th>
-          <th>ft_pct</th>
+          <th>Games</th>
+          <th>PTS</th>
+          <th>Minutes</th>
+          <th>FGM</th>
+          <th>FGA</th>
+          <th>FG%</th>
+          <th>3PM</th>
+          <th>3PA</th>
+          <th>3P%</th>
+          <th>FTM</th>
+          <th>FTA</th>
+          <th>FT%</th>
+          <th>DREB</th>
+          <th>REB</th>
+          <th>AST</th>
+          <th>STL</th>
+          <th>BLK</th>
+          <th>TOV</th>
+          <th>PF</th>
         </tr>
         </thead>
         <tbody>
         {stats?.data.map((stat) => {
           return (
             <tr key={stat.id}>
-              <td>{stat.games_played}</td>
               <td>{stat.season}</td>
+              <td>{stat.games_played}</td>
+              <td>{stat.pts}</td>
               <td>{stat.min}</td>
               <td>{stat.fgm}</td>
               <td>{stat.fga}</td>
+              <td>{Math.round(stat.fg_pct * 100)}%</td>
               <td>{stat.fg3m}</td>
               <td>{stat.fg3a}</td>
+              <td>{Math.round(stat.fg3_pct * 100)}%</td>
               <td>{stat.ftm}</td>
               <td>{stat.fta}</td>
+              <td>{Math.round(stat.ft_pct * 100)}%</td>
               <td>{stat.dreb}</td>
               <td>{stat.reb}</td>
               <td>{stat.ast}</td>
@@ -111,10 +115,6 @@ const PlayerDetails = () => {
               <td>{stat.blk}</td>
               <td>{stat.turnover}</td>
               <td>{stat.pf}</td>
-              <td>{stat.pts}</td>
-              <td>{stat.fg_pct}</td>
-              <td>{stat.fg3_pct}</td>
-              <td>{stat.ft_pct}</td>
             </tr>
           );
         })}

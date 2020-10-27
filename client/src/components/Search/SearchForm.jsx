@@ -28,8 +28,8 @@ function SearchForm () {
 
   return (
     <div>
-        <h2 style={{ color:'#ec7f37' }}>Header Text Goes Here</h2>
-        <p style={{ color:'#fff' }}>Short Description Goes Here</p>
+        <h2>NBA Player Stats</h2>
+        <p>Type in player, press enter and select player</p>
         <Form onSubmit={handleSubmit}>
             <Form.Row>
                 <Form.Control 
@@ -40,7 +40,9 @@ function SearchForm () {
                 </Form.Control>
             </Form.Row>
         </Form>
-  {filteredPlayers.map(player => <p onClick={() => history.push(`/players/${player.id}`)}>{player.first_name} {player.last_name}</p>)}
+        <div className='search-list'>
+        {filteredPlayers.map(player => <p onClick={() => history.push(`/players/${player.id}`)}>{player.first_name} {player.last_name}</p>)}
+        </div>
     </div>
   );
 }
