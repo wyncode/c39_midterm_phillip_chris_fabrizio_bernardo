@@ -4,15 +4,9 @@ import PlayerCard from '../Card/PlayerCard';
 import './SearchForm.css';
 
 
-<<<<<<< HEAD
 function SearchForm () {
   const [players, setPlayers] = useState([]);
   const [search, setSearch] = useState('');
-=======
-function SearchForm ({ history }) {
-  const [playerStats, setPlayerStats] = useState([]);
-  const [search, setSearch] = useState('goran_dragic');
->>>>>>> 309835f... Adding styling
 
   const handleSubmit = e => {
     e.preventDefault()
