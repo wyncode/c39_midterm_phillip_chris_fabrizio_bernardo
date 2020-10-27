@@ -1,15 +1,21 @@
 .MainPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 76px);
+    width: 100vw;
     text-align: center;
 }
 
 .form-row {
-    border: 4px solid #ec7f37;
-    border-radius: 40px;
-    margin: auto 350px;
+    margin: 30px auto;
 }
 
 .form-control {
-    border: none;
+    width: 250px;
+    margin: 0 auto;
+    border: 4px solid #ec7f37;
     border-radius: 40px;
     background-color: #393939;
     color: #fff;
