@@ -88,7 +88,6 @@ const PlayerDetails = () => {
           <th>STL</th>
           <th>BLK</th>
           <th>TOV</th>
-          <th>PF</th>
         </tr>
         </thead>
         <tbody>
@@ -114,7 +113,6 @@ const PlayerDetails = () => {
               <td>{stat.stl}</td>
               <td>{stat.blk}</td>
               <td>{stat.turnover}</td>
-              <td>{stat.pf}</td>
             </tr>
           );
         })}
