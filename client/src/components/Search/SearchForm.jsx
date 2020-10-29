@@ -29,7 +29,7 @@ function SearchForm () {
   return (
     <div>
         <h2>NBA Player Stats</h2>
-        <p>Type in player, press enter and select player</p>
+        <p>Type in a player's name, press enter and select the player</p>
         <Form onSubmit={handleSubmit}>
             <Form.Row>
                 <Form.Control 
