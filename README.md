@@ -5,7 +5,7 @@ Get your favorite NBA player's stats in one simple location. The app will search
 ## Setup
 
 - In your terminal, follow these steps below:
-- Clone this repo:`git clone https://github.com/wyncode/c39_midterm_phillip_chris_fabrizio_bernardo.git`
+- Clone repo:`git clone https://github.com/wyncode/c39_midterm_phillip_chris_fabrizio_bernardo.git`
 - `cd` into it.
 - `yarn install`
 - `cd client` to get into the client directory
